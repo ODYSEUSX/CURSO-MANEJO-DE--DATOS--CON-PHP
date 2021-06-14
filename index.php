@@ -1,46 +1,31 @@
 <?php
 
-echo "Un texto de una linea <br>
-varias lineas <br>";
-$name = "italo";
+//$data= 'Estudio PHP';
+//echo $data[8];
 
-echo "Mi nombre es $name <br>";
+//$post="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos eius nostrum sint iusto voluptate sed ab tenetur quia velit nam, sit cumque provident commodi harum exercitationem iste, quod aut fugiat?";
+//$extract= substr($post,0,20);
 
-$courses=[
+//echo "$extract... [ver más]";
+/** 
+$data ="javascript,php,laravel";//campo tags
+$tags=explode(',',$data);//lo convierte a un array
+echo "<pre>";
 
- "backend" =>[
-      "PHP",
-      "Laravel"
- ]
+var_dump($tags);
 
- ];
+*/
 
- echo "{$courses['backend'][0]} <br>";
+//$courses=["javascript","php","laravel"];
+//echo implode(',',$courses);
 
- class User
- {
-     public $name="italo";
- }
+//ELIMINAR ESPACIOS DE LOS STRING
 
- $user =new User;
-
- echo "$user->name quiere aprender {$courses["backend"][0]} <br>" ;
- 
+//$courses ="    Curso de PHP     ";
+//echo trim($courses);
 
 
- $teacher='italo';
- $italo='Profesor de Php';
-
- echo "$teacher es ${$teacher} <br>";
-
- function getTeacher()
- {
-     return 'teacher';
- }
-
- $teacher= "italo";
-
- echo "${getTeacher()} enseña PHP <br>";
-
- echo 'Podemos escapar una comilla
-simple así \' con un backslash \\ continuar con más texto <br>';
+$courses ="    Curso de PHP     ";
+$courses=trim($courses);
+echo "<pre></pre>";
+echo "Quiero aprender $courses, y otro texto";
