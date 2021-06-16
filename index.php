@@ -1,31 +1,42 @@
 <?php
 
-//$data= 'Estudio PHP';
-//echo $data[8];
+//alterar
 
-//$post="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos eius nostrum sint iusto voluptate sed ab tenetur quia velit nam, sit cumque provident commodi harum exercitationem iste, quod aut fugiat?";
-//$extract= substr($post,0,20);
+$text= "PHP es UN LENGUAJE";
 
-//echo "$extract... [ver más]";
-/** 
-$data ="javascript,php,laravel";//campo tags
-$tags=explode(',',$data);//lo convierte a un array
-echo "<pre>";
+echo $text;
 
-var_dump($tags);
+//modificando.
+$text= "PHP es UN LENGUAJE";
 
-*/
+//echo strtolower($text);
 
-//$courses=["javascript","php","laravel"];
-//echo implode(',',$courses);
+echo strtoupper($text);
+echo ucfirst($text); // primera letra en mayúscula
+echo lcfirst($text);//primera letra en minúscula
 
-//ELIMINAR ESPACIOS DE LOS STRING
+// REEMPLAZAR
+$text= "PHP es UN LENGUAJE"; //slug
 
-//$courses ="    Curso de PHP     ";
-//echo trim($courses);
+$slug =str_replace(' ','-',$text);
+echo $slug;
+echo strtolower($slug);
 
+//modificación
 
-$courses ="    Curso de PHP     ";
-$courses=trim($courses);
-echo "<pre></pre>";
-echo "Quiero aprender $courses, y otro texto";
+$code =39;
+echo str_pad($code,8,'#');// remplaza por '#' los espacios(8) que faltan .
+
+$code =39;
+echo str_pad($code,8,'#', STR_PAD_BOTH); //QUEDAR EN EL MEDIO.
+
+//CON HTML
+$text= "<h1>PHP es UN LENGUAJE</h1>";
+echo $text;
+
+echo strip_tags($text);  //elimina etiquetas html 
+
+//tildes
+$text= "PHP es UN LENGUAJE , año 2020 , programación";
+echo strtoupper($text); //monobyte
+echo mb_strtoupper($text); //multibyte
