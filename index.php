@@ -1,53 +1,52 @@
 <?php
- //valores
-function greet($name)
+
+$greet = function ($name) // variable que requiere lógica
 {
-    return "Hola, $name";
+   return "Hola, $name";
+};
+echo $greet('ITALO');
+
+// funciones anonimas con closure(valida que las variables van a recibir funciones anonimas)
+
+function greet(closure $lang,$name)
+{
+    return $lang($name);
 }
 
-echo greet('italo');
-
-//referencias
-$course='PHP';
-function path(&$course)  // el caracter "&" hace que el cambio afecte a lo que esta dentro de la función path y tambien a lo que esta afuera de dicha función y lo hace por referencia.
+$es= function ($name)
 {
-    $course= 'Laravel';
-    echo $course;//Laravel
-}
-path($course);
-echo $course; //Laravel
+    return "Hola , $name";
+};
 
-//predeterminado
 
-function greet($name='italo')
+
+$en= function ($name)
 {
-    return "hola,$name  ";
-}
+    return "Hello , $name";
+};
+ echo greet($es,'Lynda');
 
-echo greet();
-echo greet('abel');
-//RETURN
+ //otro ejemplo de funciones anonimas
 
-function greet()
-{
-   echo  "Hola..."; //AUNQUE COMPILA ESTA ES UNA MALA PRACTICA
+ function conversionDePesosCopA(Closure $moneda,$valor){
+    return $moneda($valor);
 }
 
-echo 
-greet();
- //LA MANERA CORRECTA DE HACERLO.
+$dolar=function($valor){
+    $resultado= $valor/3711.60;
+    return $resultado." USD <br>";
+};
 
- function greet()
-{
-    return "HOLA...";
-}
-    
-   echo greet();
+$euro=function($valor){
+    $resultado=$valor/4507.71;
+    return "$resultado EUR <br>";
+};
 
-//para retornar varios elementos siempre debemos usar un array
-function greet()
-{
-    return ['pdf','vista'];
-}
-    
-   var_dump(greet()) ;  //utilizamos var_dump en vez de echo para mostrar los resultados.
+$yen=function($valor){
+    $resultado=$valor/33.9403;
+    return "$resultado JPY <br>";
+};
+
+echo conversionDePesosCopA($dolar,1280000);
+echo conversionDePesosCopA($euro,1280000);
+echo conversionDePesosCopA($yen,1280000);
