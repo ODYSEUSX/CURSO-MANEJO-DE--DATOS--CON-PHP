@@ -1,52 +1,52 @@
 <?php
 
-$greet = function ($name) // variable que requiere lógica
-{
-   return "Hola, $name";
-};
-echo $greet('ITALO');
+$courses=['javascript','laravel','php', 'vuejs'];
 
-// funciones anonimas con closure(valida que las variables van a recibir funciones anonimas)
+echo "<pre>"; //"<pre>" nos hace mostyrar de manera mas clara el array que queremos mostrar.
+ var_dump($courses);
 
-function greet(closure $lang,$name)
+ //cambiando el numero de item de un array
+ $courses=['javascript', 10=>'laravel','php', 'vuejs'];
+
+ echo "<pre>"; //"<pre>" nos hace mostyrar de manera mas clara el array que queremos mostrar.
+  var_dump($courses);
+
+  // array complejo
+
+  $courses= [
+      'frontend'=> 'javascript',
+      'framework'=> 'laravel',
+      'backend'=> 'php'
+  ];
+  /*echo "<pre>";*/
+ /* var_dump($courses);*/
+  foreach ($courses as $key =>$value){  //tabien se puede poner asi: foreach ($courses as $course)    // $course en singular significa el elemento individual que esta en el array $courses
+
+      echo "$key: $value <br>";
+  };
+
+  //CON la funcion array_walk
+  $courses= [
+    'frontend'=> 'javascript',
+    'framework'=> 'laravel',
+    'backend'=> 'php'
+];
+
+/*function upper($course)
 {
-    return $lang($name);
+    echo strtoupper($course)." <br>";
+}*/
+
+function upper($course,$key)
+{
+    echo strtoupper($course).": $key <br>";
 }
 
-$es= function ($name)
-{
-    return "Hola , $name";
-};
 
+array_walk($courses,'upper');
 
-
-$en= function ($name)
-{
-    return "Hello , $name";
-};
- echo greet($es,'Lynda');
-
- //otro ejemplo de funciones anonimas
-
- function conversionDePesosCopA(Closure $moneda,$valor){
-    return $moneda($valor);
-}
-
-$dolar=function($valor){
-    $resultado= $valor/3711.60;
-    return $resultado." USD <br>";
-};
-
-$euro=function($valor){
-    $resultado=$valor/4507.71;
-    return "$resultado EUR <br>";
-};
-
-$yen=function($valor){
-    $resultado=$valor/33.9403;
-    return "$resultado JPY <br>";
-};
-
-echo conversionDePesosCopA($dolar,1280000);
-echo conversionDePesosCopA($euro,1280000);
-echo conversionDePesosCopA($yen,1280000);
+//otras funciones que son importantes
+/*array_key_exists('frontend', $courses); //te saldra en la pantalla "true " ya que la función busca en tu array si existe ese value.
+/*in_array('javascript','$courses'); // esta función hace la busqueda de valores(values)
+/array_keys($courses) // imprime los keys en pantalla.
+/array_values($courses)//imprime todos los valores de tu array.
